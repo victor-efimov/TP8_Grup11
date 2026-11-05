@@ -20,14 +20,17 @@ public class EmpresaServiceImp implements IEmpresaService {
     }
 
     @Override
-    public void modificarEmpresa(Empresa empresa) {
-        for (int i = 0; i < CollectionEmpresa.empresas.size(); i++) {
-            if (CollectionEmpresa.empresas.get(i).getId() == empresa.getId()) {
-                CollectionEmpresa.empresas.set(i, empresa);
-                return;
-            }
+public void modificarEmpresa(Empresa empresa) {
+    for (int i = 0; i < CollectionEmpresa.empresas.size(); i++) {
+
+        if (CollectionEmpresa.empresas.get(i).getId() == empresa.getId()) {
+            CollectionEmpresa.empresas.set(i, empresa);
+            return;
         }
     }
+
+    throw new RuntimeException("No existe una empresa con ese ID");
+}
 
     @Override
     public List<Empresa> obtenerEmpresas() {
