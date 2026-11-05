@@ -3,7 +3,6 @@ package ar.edu.unju.escmi.tp8.service.imp;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ar.edu.unju.escmi.tp8.collections.CollectionTicket;
@@ -12,8 +11,11 @@ import ar.edu.unju.escmi.tp8.service.ITicketService;
 
 @Service
 public class TicketServiceImp implements ITicketService {
-	@Autowired
-	private Ticket ticket;
+	private final Ticket ticket;
+
+	public TicketServiceImp(Ticket ticket) {
+		this.ticket = ticket;
+	}
 
 	@Override
 	public void guardarTicket(Ticket ticket) {
